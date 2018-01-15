@@ -1,8 +1,8 @@
 # GODev-Alexa-Skill-Samples
 
-## TIBCO Casemanagment Demo
+## TIBCO Casemanagement Demo
 
-Unofficial Demo Skill to demonstrate integration between TIBCO ActiveMatrix BPM and Amzon Alexa
+Unofficial Demo Skill to demonstrate integration between TIBCO ActiveMatrix BPM and Amazon Alexa.
 
 Full Source, and technical Details available on here soon.
 This will include own Version Install Details and Setup hints as well.
