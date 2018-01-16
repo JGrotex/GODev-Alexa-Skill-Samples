@@ -20,6 +20,21 @@ The Lambda YAML looks like [this](bpmbot/bpmbot.yaml), but much more importantly
 
 The full packaged NodeJS Source and requiered 'node_modules' available for download as [ZIP here](bpmbot/zip/bpmbot.zip).
 
+### available Commands
+The Skill is available in English and German, just try them out ... here some samples
+
+<b>English</b>
+- Alexa, start TIBCO Casemanagement Demo
+- what can I do here
+- my Work Items
+- my Cases
+
+<b>German</b>
+- Alexa, start TIBCO Vorgangsteuerungs Demo
+- Was kann ich hier machen
+- meine Aufgaben
+- meine Vorgänge
+
 ### Installation & Hints
 You like to create your own running Version from this BPM Bot, just follow the [Step-by-Step](bpmbot/docs/install-guide.md) Guide.
 
