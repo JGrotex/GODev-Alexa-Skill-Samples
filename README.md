@@ -15,13 +15,13 @@ This will include own Version Install Details and Setup hints as well.
 ### Technology
 This Skill is based created as Lambda Function using NodeJS JavaScript, to execute Call to ActiveMatrix BPM REST API call are used.
 
-For Alexa Intents this one is used for [Englisch](bpmbot/Intents/intents_en.json) and here the one for [German](bpmbot\Intents\intents_de.json).
-The Lambda YAML looks like [this](bpmbot\bpmbot.yaml), but much more importantly here the full Source of the '[index.js](bpmbot\index.js)'.
+For Alexa Intents this one is used for [Englisch](bpmbot/Intents/intents_en.json) and here the one for [German](bpmbot/Intents/intents_de.json).
+The Lambda YAML looks like [this](bpmbot/bpmbot.yaml), but much more importantly here the full Source of the '[index.js](bpmbot/index.js)'.
 
-The full packaged NodeJS Source and requiered 'node_modules' available for download as [ZIP here](bpmbot\zip\bpmbot.zip).
+The full packaged NodeJS Source and requiered 'node_modules' available for download as [ZIP here](bpmbot/zip/bpmbot.zip).
 
 ### Installation & Hints
-You like to create your own running Version from this BPM Bot, just follow the [Step-by-Step](bpmbot\docs\install-guide.md) Guide.
+You like to create your own running Version from this BPM Bot, just follow the [Step-by-Step](bpmbot/docs/install-guide.md) Guide.
 
 ### Links
 more GODev SKILL Details can be found here: http://www.godev.de/GOLib/alexa-bpm.html
