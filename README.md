@@ -13,7 +13,7 @@ Full Source, and technical Details available on here.
 This will include own Version Install Details and Setup hints as well.
 
 ### Technology
-This Skill is based created as Lambda Function using NodeJS JavaScript, to execute Call to ActiveMatrix BPM REST API call are used.
+This Skill is based created as Lambda Function using NodeJS JavaScript, to execute Calls to ActiveMatrix BPM the public REST API is used.
 
 For Alexa Intents this one is used for [Englisch](bpmbot/Intents/intents_en.json) and here the one for [German](bpmbot/Intents/intents_de.json).
 The Lambda YAML looks like [this](bpmbot/bpmbot.yaml), but much more importantly here the full Source of the '[index.js](bpmbot/index.js)'.
