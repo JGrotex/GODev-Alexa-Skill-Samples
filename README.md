@@ -28,7 +28,12 @@ more GODev SKILL Details can be found here: http://www.godev.de/GOLib/alexa-bpm.
 
 #### others
 other helpfull links ...
+
 Alexa Skills Kit SDK for NodeJS: https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs
+
 Amazon Developer Portal: https://developer.amazon.com/home.html
+
 Amazon Lambda Console: https://console.aws.amazon.com/lambda/home
+
 TIBCO ActiveMatrix BPM: https://www.tibco.com/products/tibco-activematrix-bpm 
+
