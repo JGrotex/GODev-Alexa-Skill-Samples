@@ -74,3 +74,7 @@ new the Alexa Skill have to be configured to listen and call your Lambda Functio
 #### Step 4.
 try your newly created Skill on any Alexa Device, e.g. your Echo, or Sonos One
 or here on [EchioSim.io](https://echosim.io/) 
+
+use e.g. 'start tibco casemanagement demo' followed by 'what functions can I call'
+
+<i>Note: The Skill will tell you if your TIBCO ActiveMatrix BPM Server is up and running or offline.</i>
