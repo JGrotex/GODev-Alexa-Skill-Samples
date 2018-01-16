@@ -1,0 +1,49 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": [
+          "Abbrechen",
+          "Danke"
+        ]
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": [
+          "was kann ich hier machen",
+          "was kann ich abfragen",
+          "was kann ich hier tun"
+        ]
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": [
+          "Ende"
+        ]
+      },
+      {
+        "name": "myCases",
+        "samples": [
+          "meine Vorgänge",
+          "Vorgänge",
+          "nenne mir meine Vorgänge"
+        ],
+        "slots": []
+      },
+      {
+        "name": "myWorkitems",
+        "samples": [
+          "meine Arbeitseinträge",
+          "meine Aufgaben",
+          "Aufgaben",
+          "Arbeitseinträge",
+          "nenne mir meine Aufgaben",
+          "nenne mir meine Aufträge"
+        ],
+        "slots": []
+      }
+    ],
+    "invocationName": "tibco vorgangssteuerungsdemo"
+  }
+}

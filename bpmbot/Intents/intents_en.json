@@ -1,0 +1,48 @@
+{
+  "languageModel": {
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": [
+          "Cancel",
+          "break",
+          "cancel this skill"
+        ]
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": [
+          "what can I do",
+          "what are my options",
+          "what functions can I call"
+        ]
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": [
+          "stop this skill"
+        ]
+      },
+      {
+        "name": "myCases",
+        "samples": [
+          "my cases",
+          "give me my cases",
+          "my case status",
+          "cases"
+        ],
+        "slots": []
+      },
+      {
+        "name": "myWorkitems",
+        "samples": [
+          "my Workitems",
+          "workitems",
+          "give me my workitems"
+        ],
+        "slots": []
+      }
+    ],
+    "invocationName": "tibco casemanagement demo"
+  }
+}

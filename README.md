@@ -1,14 +1,34 @@
 # GODev-Alexa-Skill-Samples
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## TIBCO Casemanagement Demo
+
+![Alexa TIBCO](images/Alexa-TIBCO.jpg?raw=true "TIBCO BPM Bot on Amazon Alexa")
 
 ### Overview
 Unofficial Demo Skill to demonstrate integration between TIBCO ActiveMatrix BPM and Amazon Alexa.
 
-Full Source, and technical Details available on here soon.
+Full Source, and technical Details available on here.
 This will include own Version Install Details and Setup hints as well.
 
-Stay tuned, ... hope to get this done this week!
+### Technology
+This Skill is based created as Lambda Function using NodeJS JavaScript, to execute Call to ActiveMatrix BPM REST API call are used.
+
+For Alexa Intents this one is used for [Englisch](bpmbot\Intents\intents_en.json) and here the one for [German](bpmbot\Intents\intents_de.json).
+The Lambda YAML looks like [this](bpmbot\bpmbot.yaml), but much more importantly here the full Source of the '[index.js](bpmbot\index.js)'.
+
+The full packaged NodeJS Source and requiered 'node_modules' available for download as [ZIP here](bpmbot\zip\bpmbot.zip).
+
+### Installation & Hints
+You like to create your own running Version from this BPM Bot, just follow the [Step-by-Step](bpmbot\docs\install-guide.md) Guide.
 
 ### Links
-more Details can be found here: http://www.godev.de/GOLib/alexa-bpm.html
+more GODev SKILL Details can be found here: http://www.godev.de/GOLib/alexa-bpm.html
+
+#### others
+other helpfull links ...
+Alexa Skills Kit SDK for NodeJS: https://github.com/alexa/alexa-skills-kit-sdk-for-nodejs
+Amazon Developer Portal: https://developer.amazon.com/home.html
+Amazon Lambda Console: https://console.aws.amazon.com/lambda/home
+TIBCO ActiveMatrix BPM: https://www.tibco.com/products/tibco-activematrix-bpm 

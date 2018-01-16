@@ -1,0 +1,25 @@
+﻿AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: TIBCO Alexa BPM Bot
+Resources:
+  bpmbot:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs6.10
+      CodeUri: .
+      Description: TIBCO Alexa BPM Bot
+      MemorySize: 128
+      Timeout: 15
+      Role: 'arn:aws:iam::137865666100:role/lambda_basic_execution'
+      Events:
+        AlexaSkillEvent:
+          Type: AlexaSkill
+      Environment:
+        Variables:
+          BPMPW: secret
+          BPMUSER: tibco-admin
+          BPMRESTURL: >-
+            http://ec2-46-137-125-143.eu-west-1.compute.amazonaws.com:8080/bpm/rest
+      Tags:
+        'vendor': tibco
