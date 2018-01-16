@@ -8,6 +8,7 @@ Step by Step Guide to create your own copy of the Skill within your Amazon Devel
 URL: https://console.aws.amazon.com/lambda/home
 
 #### Step 1.
+- select AWS location 'us-east-1' (only this is currently Supported to host Alexa triggerd Functions, <i>maybe outdated Info</i>)
 - create your Lambda Function, 'create function'
 - select Author from scratch
 - enter a function Name: e.g. 'bpmbot'
