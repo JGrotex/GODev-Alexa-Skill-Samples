@@ -10,9 +10,12 @@ var AWS = require('aws-sdk');
 var request = require('sync-request');
 const Alexa = require('alexa-sdk');
 
-const APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
+const APP_ID = 'amzn1.ask.skill.c5f41837-efc3-4525-b695-61ff24465006';  // TODO replace with your app ID (OPTIONAL).
 
 var loginDetails;
+
+//enable Demo Mode without TIBCO ActiveMatrix BPM Server
+const demoMode = true;
 
 const languageStrings = {
     'en': {
@@ -27,6 +30,7 @@ const languageStrings = {
             MORE_QUESTION: 'Do you have more Questions for me?',
             NO_SERVER: 'could not reach the currently configured TIBCO BPM Demo Server.',
             NO_LOGIN: 'Combination of Username and Password wrong defined.',
+            DEMO_USER: 'Demo User',
             STOP_MESSAGE: 'Goodbye!',
         },
     },
@@ -52,7 +56,8 @@ const languageStrings = {
             MORE_QUESTION: 'Hast du weitere Fragen an mich?',
             NO_SERVER: 'Der aktuell konfigurierte TIBCO BPM Demo Server konnte nicht erreicht werden.',
             NO_LOGIN: 'Kombination Benutzername und Password falsch angegeben.',
-            STOP_MESSAGE: 'Auf Wiedersehen!',
+            DEMO_USER: 'Demo Anwender',
+            STOP_MESSAGE: 'Bis zum nächten mal!',
         },
     },
 };
@@ -66,39 +71,55 @@ const handlers = {
         speechOutput = this.t('WELCOME');
         
         const imageObj = {
+            //only https URLs allowed here
 	        smallImageUrl: 'https://www.tibco.com/blog/wp-content/uploads/2015/08/tibco-logo.jpg',
 	        largeImageUrl: 'https://www.tibco.com/blog/wp-content/uploads/2015/08/tibco-logo.jpg'
             };
         
-        try {
-            const reprompt = this.t('HELP_MESSAGE');
-            
-            loginDetails = performLogin();
-            if (loginDetails.errorCode != 200) {
-                speechOutput = this.t('NO_LOGIN');
-            } else {
-                speechOutput = this.t('WELCOME') + " " + loginDetails.displayName;
+        if (demoMode) {
+           const reprompt = this.t('HELP_MESSAGE');
+           speechOutput = this.t('WELCOME') + ", " + this.t('DEMO_USER');
+           this.emit(':askWithCard', speechOutput, reprompt, this.t('SKILL_NAME'), speechOutput, imageObj);
+        } else {
+            try {
+                const reprompt = this.t('HELP_MESSAGE');
+                
+                loginDetails = performLogin();
+                if (loginDetails.errorCode != 200) {
+                    speechOutput = this.t('NO_LOGIN');
+                } else {
+                    speechOutput = this.t('WELCOME') + " " + loginDetails.displayName;
+                }
+                this.emit(':askWithCard', speechOutput, reprompt, this.t('SKILL_NAME'), speechOutput, imageObj);
+            } catch(e) {
+                speechOutput = this.t('NO_SERVER');
+                this.emit(':tellWithCard', speechOutput, this.t('SKILL_NAME'), speechOutput, imageObj);
             }
-            this.emit(':askWithCard', speechOutput, reprompt, this.t('SKILL_NAME'), speechOutput, imageObj);
-        } catch(e) {
-            speechOutput = this.t('NO_SERVER');
-            this.emit(':tellWithCard', speechOutput, this.t('SKILL_NAME'), speechOutput, imageObj);
         }
     },
     'myCases': function () {
         var speechOutput;
 
-        var contrats = listContrat(1, loginDetails.auth);
-        speechOutput = this.t('YOU_HAVE') + contrats.length + this.t('CASES');
+        if (demoMode) {
+            const count = Math.floor(Math.random() * 10);
+            speechOutput = this.t('YOU_HAVE') + count + this.t('CASES');
+        } else {
+            var contrats = listContrat(1, loginDetails.auth);
+            speechOutput = this.t('YOU_HAVE') + contrats.length + this.t('CASES');
+        }
 
         const reprompt = this.t('MORE_QUESTION');
         this.emit(':askWithCard', speechOutput, reprompt, this.t('SKILL_NAME'), speechOutput);
     },
     'myWorkitems': function () {
         var speechOutput;
-        //JGR: just for testing ... const wicount = Math.floor(Math.random() * 10);
-        var wicount = getWorkitems(loginDetails.auth);
-        speechOutput = this.t('YOU_HAVE') + wicount + this.t('WORKITEMS');
+        if (demoMode) {
+            const count = Math.floor(Math.random() * 10);
+            speechOutput = this.t('YOU_HAVE') + count + this.t('WORKITEMS');
+        } else {
+            var wicount = getWorkitems(loginDetails.auth);
+            speechOutput = this.t('YOU_HAVE') + wicount + this.t('WORKITEMS');
+        }
         
         const reprompt = this.t('MORE_QUESTION');
         this.emit(':askWithCard', speechOutput, reprompt, this.t('SKILL_NAME'), speechOutput);
@@ -252,7 +273,7 @@ function runPFServiceProcess(auth, pfPath, body) {
             options['body'] = JSON.stringify(body);
         }
 
-        // ActiveMatrix BPM Config params
+            // ActiveMatrix BPM Config params
         var bpmRestUrl = process.env.BPMRESTURL || 'http://localhost:8080/bpm/rest';
 
         var requestUrl = bpmRestUrl + '/pageflow/start/' + pfPath;
@@ -325,5 +346,3 @@ function runAPIcall(auth, methode, apiPath, body) {
 
         return returnedData;
 }
-
-
