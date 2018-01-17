@@ -10,7 +10,7 @@ var AWS = require('aws-sdk');
 var request = require('sync-request');
 const Alexa = require('alexa-sdk');
 
-const APP_ID = 'amzn1.ask.skill.c5f41837-efc3-4525-b695-61ff24465006';  // TODO replace with your app ID (OPTIONAL).
+const APP_ID = undefined;  // TODO replace with your app ID (OPTIONAL).
 
 var loginDetails;
 
