@@ -61,7 +61,7 @@ new the Alexa Skill have to be configured to listen and call your Lambda Functio
 
 <b>Configuration Tab</b>
 - click on Configuration
-- select Service Endpoint Type: 'AWS Lanbda ARN'
+- select Service Endpoint Type: 'AWS Lambda ARN'
 - copy your Lambda Function ARN into the field 'Default': e.g. arn:aws:lambda:us-east-1:<i>something</i>:function:bpmbot
 - for 'Account Linking' select 'no'
 - click on 'Save' and then 'Next' 
