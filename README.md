@@ -10,7 +10,7 @@
 Unofficial Demo Skill to demonstrate integration between TIBCO ActiveMatrix BPM and Amazon Alexa.
 
 Full Source, and technical Details available on here.
-This will include own Version Install Details and Setup hints as well.
+It include own Version Install Details (e.g. to run as Alexa for Business) and Setup hints as well.
 
 ### Technology
 This Skill is based created as Lambda Function using NodeJS JavaScript, to execute Calls to ActiveMatrix BPM the public REST API is used.
