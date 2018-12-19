@@ -2,12 +2,39 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## TIBCO Casemanagement Demo
+![Alexa TIBCO](images/Alexa-TIBCO.jpg?raw=true "TIBCO Amazon Alexa Bots")
 
-![Alexa TIBCO](images/Alexa-TIBCO.jpg?raw=true "TIBCO BPM Bot on Amazon Alexa")
+## TIBCO Cloud Integration LiveApps Sample
+### Overview
+... coming soon in 2019, stay tuned!
 
+## TIBCO Cloud Integration Flogo Sample
+### Overview
+Simple Sample of calling a TCI Flogo Service from Amazon Alexa, to get a Case count for TIBCO Cloud LiveApps.
+This is just a technical Sample, using AWS SDK Core Functionalities to connect to TIBCO Services, by keeping the Source on AWS Lambda as tiny as possible.
+
+### Configuration
+to get the sample working witin your Alexa / AWS Developer Account install Amazon Alexa ASK CLI. The only String that need to be change in the Lambda Index.js is the 'endpoint: 'https://<<your location>>.integration.cloud.tibcoapps.com/<<your TCI Service ID>>'' to point to your TIBCO Cloud Integration Service Endpoint.
+
+### Deployment
+The full Skill can be depoyed quickly and globally using Amazon Alexa ASK CLI with the following commands:
+- switch to you Alexa Development Folder
+- >ask init
+- >ask deploy [--no-wait]
+
+This will create the Alexa Skill, configure it for global Endpoints (see '.ask/config' and 'skill.json') finally the Lamdba Function the lamda function is automatically created in 'NA', 'EU', and 'FE'.
+
+### TCI Flogo Service
+The graphically defined connect TIBCO Flogo Service looks like below, and just consume some ready to uses TIBCO Cloud LiveApps Connectors.
+
+![Alexa TIBCO Flogo LiveApps](images/basicFlogoFlow.png?raw=true "basic TIBCO Flogo flow connected to LiveApps")
+
+... added the flow JSON, later.
+
+## TIBCO ActiveMatrix BPM Casemanagement Demo
 ### Overview
 Unofficial Demo Skill to demonstrate integration between TIBCO ActiveMatrix BPM and Amazon Alexa.
+This Implemenation is a bit older, and got no updates a while ago!
 
 Full Source, and technical Details available on here.
 It include own Version Install Details (e.g. to run as Alexa for Business) and Setup hints as well.
@@ -19,6 +46,7 @@ For Alexa Intents this one is used for [Englisch](bpmbot/Intents/intents_en.json
 The Lambda YAML looks like [this](bpmbot/bpmbot.yaml), but much more importantly here the full Source of the '[index.js](bpmbot/index.js)'.
 
 The full packaged NodeJS Source and requiered 'node_modules' available for download as [ZIP here](bpmbot/zip/bpmbot.zip).
+Note: This package is quite big, in the meantime I moved on to use AWS SDK Core for all kinds of Service Calls, with this you can keep Lambda function quite smaller. (see TCI Sample)
 
 ### available Commands
 The Skill is available in English and German, just try them out ... here some samples
