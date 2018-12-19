@@ -1,0 +1,56 @@
+{
+  "skillManifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "TCI Flogo Sample",
+          "examplePhrases": [
+            "Alexa open TCI Flogo",
+            "get my data"
+          ],
+          "name": "TCI-Flogo",
+          "description": "Sample for TCI Flogo Integration"
+        },
+		    "de-DE": {
+          "summary": "TCI Flogo Beispiel",
+          "examplePhrases": [
+            "Alexa starte TCI Flogo",
+            "hole meine Daten"
+          ],
+          "name": "TCI-Flogo",
+          "description": "Beispiel für eine TCI Flogo Integration"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "TCI Flogo Testing Instructions.",
+      "category": "NEWS",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom"
+        },
+		"interfaces": [],
+        "regions": {
+          "NA": {
+            "endpoint": {
+              "sourceDir": "lambda/custom"
+            }
+          },
+          "EU": {
+            "endpoint": {
+              "sourceDir": "lambda/custom"
+            }
+          },
+          "FE": {
+            "endpoint": {
+              "sourceDir": "lambda/custom"
+            }
+          }
+        }
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}

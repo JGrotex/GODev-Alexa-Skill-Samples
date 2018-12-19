@@ -1,0 +1,36 @@
+{
+  "deploy_settings": {
+    "default": {
+      "skill_id": "",
+      "was_cloned": false,
+      "merge": {
+        "skillManifest": {
+          "apis": {
+            "custom": {
+              "endpoint": {
+                "uri": "ask-custom-TCI-Flogo-default"
+              },
+              "regions": {
+                "NA": {
+                  "endpoint": {
+                    "uri": "ask-custom-TCI-Flogo-default"
+                  }
+                },
+                "EU": {
+                  "endpoint": {
+                    "uri": "ask-custom-TCI-Flogo-default"
+                  }
+                },
+                "FE": {
+                  "endpoint": {
+                    "uri": "ask-custom-TCI-Flogo-default"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

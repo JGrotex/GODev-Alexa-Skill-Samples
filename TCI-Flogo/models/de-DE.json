@@ -1,0 +1,43 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "tibco flogo",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+            "Abbrechen",
+            "Vielen Dank",
+            "Okay Danke",
+            "Danke",
+            "Nein Danke"
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "Was kann ich hier machen",
+            "Was kann ich hier tun",
+            "Skill Hilfe",
+            "Hilfe"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "getdata",
+          "samples": [
+            "Anzahl Voränge",
+            "meine Vorgänge"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ]
+    }
+  }
+}
