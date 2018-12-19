@@ -1,0 +1,127 @@
+{
+ "name": "Alexa-Skill-Data-Service",
+ "description": " ",
+ "version": "1.0.0",
+ "type": "flogo:app",
+ "appModel": "1.0.0",
+ "resources": [
+  {
+   "id": "flow:getLiveAppsCases_GET",
+   "data": {
+    "name": "getLiveAppsCases_GET",
+    "description": "get your LiveApps Cases",
+    "tasks": [
+     {
+      "id": "LiveAppsFindCases",
+      "name": "LiveAppsFindCases",
+      "activity": {
+       "ref": "git.tibco.com/git/product/ipaas/wi-plugins.git/activity/liveapps/query",
+       "input": {
+        "applicationId": "1495",
+        "sandboxId": "31",
+        "limit": "100"
+       },
+       "output": {
+        "caseRefs": {
+         "metadata": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"properties\":{\"cases\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"caseReference\":{\"type\":\"string\"}}}}},\"type\":\"object\"}",
+         "value": ""
+        }
+       },
+       "mappings": {
+        "input": [
+         {
+          "mapTo": "$INPUT['query']",
+          "type": "literal",
+          "value": ""
+         }
+        ]
+       }
+      }
+     },
+     {
+      "id": "ReplyToHTTPMessage",
+      "name": "ReplyToHTTPMessage",
+      "activity": {
+       "ref": "git.tibco.com/git/product/ipaas/wi-contrib.git/contributions/General/activity/reply",
+       "input": {
+        "Reply": "Success with Data",
+        "code": 200,
+        "message": "Ok",
+        "data": {
+         "metadata": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"string\"}}}",
+         "value": ""
+        }
+       },
+       "output": {},
+       "mappings": {
+        "input": [
+         {
+          "mapTo": "$INPUT['data']['data']",
+          "type": "expression",
+          "value": "utility.renderJSON($activity[LiveAppsFindCases].caseRefs.cases, boolean.false())"
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "links": [
+     {
+      "id": 1,
+      "from": "LiveAppsFindCases",
+      "to": "ReplyToHTTPMessage",
+      "type": "default"
+     }
+    ],
+    "metadata": {
+     "input": [],
+     "output": []
+    },
+    "explicitReply": true
+   }
+  }
+ ],
+ "triggers": [
+  {
+   "ref": "git.tibco.com/git/product/ipaas/wi-contrib.git/contributions/General/trigger/rest",
+   "name": "ReceiveHTTPMessage",
+   "description": "get your LiveApps Cases",
+   "settings": {
+    "port": 9999
+   },
+   "id": "ReceiveHTTPMessage",
+   "handlers": [
+    {
+     "description": "get your LiveApps Cases",
+     "settings": {
+      "Method": "GET",
+      "Path": "/cases",
+      "OutputValidation": false
+     },
+     "outputs": {
+      "headers": {
+       "metadata": "{\"type\":\"object\",\"properties\":{\"Accept\":{\"type\":\"string\"},\"Accept-Charset\":{\"type\":\"string\"},\"Accept-Encoding\":{\"type\":\"string\"},\"Content-Type\":{\"type\":\"string\"},\"Content-Length\":{\"type\":\"string\"},\"Connection\":{\"type\":\"string\"},\"Cookie\":{\"type\":\"string\"},\"Pragma\":{\"type\":\"string\"}},\"required\":[]}",
+       "value": ""
+      }
+     },
+     "action": {
+      "ref": "github.com/TIBCOSoftware/flogo-contrib/action/flow",
+      "data": {
+       "flowURI": "res://flow:getLiveAppsCases_GET"
+      },
+      "mappings": {
+       "input": [],
+       "output": []
+      }
+     },
+     "reply": {
+      "code": 200
+     }
+    }
+   ]
+  }
+ ],
+ "properties": [],
+ "ui": "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",
+ "contrib": "W3sicmVmIjoiZ2l0LnRpYmNvLmNvbS9naXQvcHJvZHVjdC9pcGFhcy93aS1jb250cmliLmdpdC9jb250cmlidXRpb25zL0dlbmVyYWwiLCJzM2xvY2F0aW9uIjoiVGliY28vR2VuZXJhbCJ9XQ=="
+}
