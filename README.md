@@ -29,7 +29,7 @@ The graphically defined connect TIBCO Flogo Service looks like below, and just c
 
 ![Alexa TIBCO Flogo LiveApps](images/basicFlogoFlow.png?raw=true "basic TIBCO Flogo flow connected to LiveApps")
 
-Full TCI Flogo Implementation JSON [here](flogo-json/Alexa-Skill-Data-Service.json)
+Full TCI Flogo Implementation JSON [here](TCI-Flogo/flogo-json/Alexa-Skill-Data-Service.json)
 You just have to configure to point to you TIBCO Cloud LiveApps Application.
 
 ## TIBCO ActiveMatrix BPM Case Management Demo
