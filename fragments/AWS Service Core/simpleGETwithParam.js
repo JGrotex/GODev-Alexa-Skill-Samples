@@ -11,7 +11,7 @@ const AWS = require('aws-sdk');
 // define target API as service
 const svc = new AWS.Service({
  
-    // TIBCO Cloud Integartion base API URL, can be even more secured using TIBCO Mashery.
+    // TIBCO Cloud Integration base API URL, can be even more secured using TIBCO Mashery.
     endpoint: 'https://<<your location>>.integration.cloud.tibcoapps.com/<<your Service Endpoint key>>',
  
     // don't parse API responses (optional)
