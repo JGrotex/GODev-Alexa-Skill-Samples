@@ -9,7 +9,7 @@ const AWS = require('aws-sdk');
 // --------------- TCI Service Descriptor -----------------------
 
 // define target API as service
-const svc = new AWS.Service({
+const service = new AWS.Service({
  
     // TIBCO Cloud Integration base API URL, can be even more secured using TIBCO Mashery.
     endpoint: 'https://<<your location>>.integration.cloud.tibcoapps.com/<<your Service Endpoint key>>',
@@ -45,11 +45,11 @@ const svc = new AWS.Service({
 // --------------- TCI Service Call -----------------------
 
 // disable AWS region related login in the SDK
-svc.isGlobalEndpoint = true;
+service.isGlobalEndpoint = true;
 
 function getCases() {
 
-    svc.getData({}, (err, data) => {
+    service.getData({}, (err, data) => {
         if (err) {
             console.error(':>> operation error:', err);
             return callback(err);

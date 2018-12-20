@@ -18,7 +18,7 @@
 const AWS = require('aws-sdk');
 
 // define our target API as a "service"
-const svc = new AWS.Service({
+const service = new AWS.Service({
 
     // the API base URL
     endpoint: 'https://sso-ext.tibco.com',
@@ -107,7 +107,7 @@ const svc = new AWS.Service({
 });
 
 // disable AWS region related login in the SDK
-svc.isGlobalEndpoint = true;
+service.isGlobalEndpoint = true;
 
 //
 // --------------- TIBCO Cloud Service Call -----------------------
@@ -116,7 +116,7 @@ svc.isGlobalEndpoint = true;
 exports.handler = function(event, context, callback) {
 
     // POST TIBCO Cloud authenticate
-    svc.authenticate({
+    service.authenticate({
         username: '<<your user account>>',
         password: '<<Secret Pass>>'
     }, (err, data) => {
@@ -127,7 +127,7 @@ exports.handler = function(event, context, callback) {
         }
 
 		// POST create LiveApps Case
-        svc.createCase({
+        service.createCase({
             auth: `Bearer ${data.authToken}`,
             data: {
                 firstName: 'George',
