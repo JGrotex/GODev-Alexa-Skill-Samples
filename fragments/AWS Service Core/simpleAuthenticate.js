@@ -51,7 +51,7 @@ const service = new AWS.Service({
                             locationName: 'username'
                         },
                         'password': {
-                            location: 'header', //header, querystring, body ?
+                            location: 'header', //header, querystring, binary ?
                             locationName: 'password',
                             // don't show the Password in the logs
                             sensitive: true
