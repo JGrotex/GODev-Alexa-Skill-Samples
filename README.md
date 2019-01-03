@@ -18,7 +18,7 @@
 ## TIBCO Cloud Integration Flogo Sample
 ### Overview
 Simple Sample of calling a TCI Flogo Service from Amazon Alexa, to get a Case count for TIBCO Cloud LiveApps.
-This is just a technical Sample, using AWS SDK Core Functionalities to connect to TIBCO Services, by keeping the Source on AWS Lambda as tiny as possible.
+This is just a technical Sample, using AWS SDK Core Functionalities to connect to TIBCO Services, by keeping the Source on AWS Lambda as tiny as possible. [Medium Article, here](https://levelup.gitconnected.com/calling-external-rest-service-from-aws-lambda-1890a521a3f1)
 
 ### Configuration
 to get the sample working within your Alexa / AWS Developer Account install Amazon Alexa ASK CLI. The only String that need to be change in the Lambda Index.js is the 'endpoint: 'https://<<your location>>.integration.cloud.tibcoapps.com/<<your TCI Service ID>>'' to point to your TIBCO Cloud Integration Service Endpoint.
