@@ -12,7 +12,6 @@
 <a name="liveapps"></a>
 ## TIBCO Cloud LiveApps Sample
 ### Overview
-... coming soon in 2019, stay tuned!  Currently in draft planing for a Skill.
 
 <a name="tci"></a>
 ## TIBCO Cloud Integration Flogo Sample
